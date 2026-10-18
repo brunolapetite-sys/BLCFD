@@ -10,7 +10,7 @@
 | Bash | ≥ 3.2 | Lanceurs |
 | Python | ≥ 3.8, bibliothèque standard uniquement | Orchestration et vérification |
 | Git | Version 2.x | Historique et clonage ; facultatif pour une archive locale |
-| Docker | Docker Engine/Desktop avec `docker run` et `--mount` | Exécution conteneurisée |
+| Docker | Docker Engine/Desktop avec `docker build`, `run` et `--mount` | Exécution conteneurisée |
 | ParaView | Avec lecteur OpenFOAM | Visualisation facultative |
 
 La version est conservée dans `config/openfoam.env`. L'image est
@@ -20,9 +20,14 @@ La version est conservée dans `config/openfoam.env`. L'image est
 sha256:097e45046a74ee1dae3e6135df0c42723ba55092d246e7c9932f3bfa1e89b7b2
 ```
 
-Cet index contient notamment les architectures Linux amd64 et arm64. Fixer
-l'image rend l'environnement de base reproductible ; des différences d'arrondi
-entre architectures restent possibles. Le manifeste enregistre l'architecture.
+Cet index contient notamment les architectures Linux amd64 et arm64.
+`docker/Dockerfile` garantit la présence de Python et Git via les dépôts Ubuntu
+de cette image. Ces paquets ne sont pas fixés par version : une
+reconstruction future peut recevoir leurs mises à jour. Le manifeste enregistre
+la référence de base, l'identifiant exact de l'image construite, la version de
+Python et l'architecture. La référence de base est figée ; la reconstruction
+complète à l'identique n'est pas garantie. Des différences d'arrondi entre
+architectures restent également possibles.
 
 ## Voie Docker
 
@@ -36,9 +41,12 @@ bash scripts/docker-run.sh
 ```
 
 Le lanceur charge `/usr/lib/openfoam/openfoam2312/etc/bashrc` dans le conteneur,
-puis utilise exactement le même pipeline que le lanceur natif. Python doit être
+puis utilise exactement le même pipeline que le lanceur natif. L'image dérivée
+est construite automatiquement et réutilise le cache Docker aux appels suivants.
+Le téléchargement initial et la construction nécessitent un accès réseau aux
+registres et dépôts de paquets. Python doit être
 disponible sur l'hôte uniquement pour `scripts/check.sh` ; le calcul Docker
-utilise le Python du conteneur. Aucune dépendance `pip` n'est requise.
+utilise le Python installé dans l'image dérivée. Aucune dépendance `pip` n'est requise.
 
 ## Voie native Linux
 

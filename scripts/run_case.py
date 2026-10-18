@@ -109,6 +109,7 @@ def main():
         "openfoam_version": os.environ.get("WM_PROJECT_VERSION"),
         "openfoam_directory": os.environ.get("WM_PROJECT_DIR"),
         "runtime_image": os.environ.get("BLCFD_RUNTIME_IMAGE"),
+        "base_image": os.environ.get("BLCFD_BASE_IMAGE"),
         "platform": platform.platform(), "machine": platform.machine(),
         "python_version": platform.python_version(),
         "executables": {name: shutil.which(name) for name in ("blockMesh", "checkMesh", application)},

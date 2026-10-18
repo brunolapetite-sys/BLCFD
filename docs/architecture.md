@@ -45,7 +45,8 @@ Un résultat contient :
 - `log.blockMesh`, `log.checkMesh`, `log.<solveur>` et, si applicable,
   `log.verification` ;
 - `run.json`, statut, commit ou absence de commit, état modifié du dépôt,
-  environnement, commandes, codes retour et SHA-256 des entrées ;
+  environnement, base OpenCFD et identifiant de l'image dérivée si applicable,
+  commandes, codes retour et SHA-256 des entrées ;
 - `verification.json` pour le contrôle de cavité ;
 - `case.foam` pour ParaView après achèvement du solveur.
 

@@ -25,10 +25,11 @@ Depuis Linux, macOS avec Docker, ou Windows avec WSL2 et Docker :
 git clone https://github.com/brunolapetite-sys/BLCFD.git
 cd BLCFD
 bash scripts/check.sh             # contrôles sans OpenFOAM
-bash scripts/docker-run.sh        # premier calcul dans l'image fixée par digest
+bash scripts/docker-run.sh        # construction de l'environnement puis calcul
 ```
 
-Docker doit être installé et démarré ; le premier lancement télécharge l'image.
+Docker doit être installé et démarré ; le premier lancement télécharge la base
+OpenCFD fixée par digest et construit l'image BLCFD avec Python et Git.
 La commande annonce le chemin de l'exécution, par exemple `runs/cavity-.../`.
 Lire `verification.json` pour les contrôles et `run.json` pour le statut final.
 Ouvrir `case.foam` dans ParaView, sélectionner les champs puis cliquer sur Apply.
@@ -49,6 +50,7 @@ Le calcul est séquentiel et utilise le CPU. Aucun GPU, CUDA ou ROCm n'est requi
 ```text
 BLCFD/
   config/openfoam.env              # version et image Docker de référence
+  docker/Dockerfile                # ajoute Python et Git à la base OpenCFD
   cases/smoke/cavity/              # test générique autonome
     case.json                     # statut et contrôle applicable
     0/{U,p}                       # champs initiaux et conditions aux limites

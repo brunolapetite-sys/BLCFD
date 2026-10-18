@@ -36,7 +36,8 @@ spatiale/temporelle, ni la validité d'un modèle de turbulence ou de ses entré
 ## Intégration continue
 
 Le workflow `.github/workflows/checks.yml` lance les contrôles statiques puis
-le calcul dans l'image OpenCFD fixée par digest. Il conserve les exécutions en
+le calcul dans l'image BLCFD construite sur la base OpenCFD fixée par digest.
+Il conserve les exécutions en
 artefacts GitHub Actions pendant sept jours, y compris les journaux d'échec.
 La présence du workflow n'est pas un résultat : consulter l'exécution liée au
 commit dans l'onglet **Actions**.
