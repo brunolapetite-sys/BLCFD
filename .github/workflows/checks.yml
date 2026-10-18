@@ -1,0 +1,41 @@
+name: BLCFD checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blcfd-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: Syntax and acceptance-checker tests
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: bash scripts/check.sh
+
+  cavity:
+    name: OpenCFD v2312 cavity smoke test
+    needs: static
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run actual OpenFOAM calculation
+        run: bash scripts/docker-run.sh
+      - name: Retain logs, manifests and fields
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cavity-${{ github.sha }}
+          path: runs/
+          if-no-files-found: warn
+          retention-days: 7

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "name": "cavity",
+  "purpose": "generic-smoke-test",
+  "runnable": true,
+  "solver": "icoFoam",
+  "verification": "cavity-smoke",
+  "missing_inputs": []
+}

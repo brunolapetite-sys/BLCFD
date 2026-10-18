@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "not-configured",
+  "study_name": null,
+  "coordinate_system": {
+    "crs": null,
+    "origin_in_crs_m": null,
+    "x_axis_direction": null,
+    "length_unit": "m"
+  },
+  "geometry": {
+    "terrain_file": null,
+    "structures": [],
+    "measurement_date": null,
+    "source_ids": []
+  },
+  "wind": {
+    "data_file": null,
+    "measurement_period_utc": null,
+    "reference_height_m": null,
+    "reference_speed_m_s": null,
+    "direction_from_north_deg": null,
+    "source_ids": []
+  },
+  "terrain_roughness_length_m": null,
+  "boundary_conditions": null,
+  "physical_model": null,
+  "solver": null,
+  "mesh_strategy": null,
+  "validation_reference": null,
+  "acceptance_criteria": null,
+  "sources": []
+}

@@ -1,0 +1,10 @@
+// MODÈLE DOCUMENTAIRE NON EXÉCUTABLE : compléter après choix du protocole.
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      controlDict;
+}
+application __A_RENSEIGNER__;
+// Ajouter les contrôles temporels/itératifs, les écritures et les sorties utiles.

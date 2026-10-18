@@ -1,0 +1,9 @@
+# Calculs et données locales : conserver les entrées versionnées hors de runs/.
+/runs/
+/studies/aeraulique/inputs/local/
+/studies/aeraulique/geometry/local/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+*~

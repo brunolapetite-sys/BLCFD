@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "name": "aeraulique-to-configure",
+  "purpose": "site-study-template",
+  "runnable": false,
+  "solver": null,
+  "verification": "none",
+  "missing_inputs": [
+    "géométrie et repère documentés",
+    "données de vent et conditions aux limites",
+    "propriétés et modèle physique",
+    "solveur et pipeline de maillage",
+    "protocole de vérification et validation"
+  ]
+}
