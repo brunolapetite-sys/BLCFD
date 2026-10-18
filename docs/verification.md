@@ -42,6 +42,31 @@ artefacts GitHub Actions pendant sept jours, y compris les journaux d'échec.
 La présence du workflow n'est pas un résultat : consulter l'exécution liée au
 commit dans l'onglet **Actions**.
 
+## Première exécution vérifiée — 18 octobre 2026
+
+Le commit `50c726fa5a9ef53c98b32b68b349fc744d51e7a9` a passé les contrôles
+statiques (10 tests), puis le calcul réel sous OpenCFD v2312, architecture
+Linux x86_64 et Python 3.10.12. Le dépôt était sans modification locale selon
+le manifeste. [Exécution GitHub Actions](https://github.com/brunolapetite-sys/BLCFD/actions/runs/39140027739).
+
+Valeurs lues dans l'artefact `verification.json` de cette exécution :
+
+| Indicateur | Résultat |
+| --- | --- |
+| Cellules / pas de temps | 400 / 100 |
+| Temps final | 0,5 s |
+| Courant maximal | 0,8521340073 |
+| Erreur globale de continuité maximale en valeur absolue | 2,70885111 × 10⁻¹⁸ |
+| Norme de vitesse maximale | 0,8526671227 m/s |
+| Ux minimum / maximum | −0,203856228 / 0,8526669765 m/s |
+| Vitesse hors plan maximale en valeur absolue | 0 m/s |
+| Statut | `passed-smoke-test` |
+
+L'identifiant de l'image dérivée construite était
+`sha256:b51573a6c7a423cc00ce1260f30dc14c24d8deb8b3db5e020bb7139a03e39206`.
+Ces résultats documentent ce test générique ; le champ
+`scientific_validation` du manifeste reste `not-performed`.
+
 ## Avant toute conclusion sur l'étude
 
 Conserver la géométrie et la provenance des mesures, justifier le domaine et les

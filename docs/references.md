@@ -8,7 +8,7 @@ dans la documentation ; aucune géométrie d'un dossier de terrain n'est reprise
   https://www.openfoam.com/documentation/tutorial-guide/2-incompressible-flow/2.1-lid-driven-cavity-flow
   — problème de cavité, maillage bidimensionnel, unités et `icoFoam`.
 - OpenCFD, **icoFoam**, documentation du solveur (édition 2306, famille du
-  solveur utilisée ; le fonctionnement 2312 est à vérifier par exécution) :
+  solveur utilisée ; l'exécution 2312 est documentée dans `verification.md`) :
   https://doc.openfoam.com/2306/tools/processing/solvers/rtm/incompressible/icoFoam/
 - OpenCFD, **documentation versionnée** : https://doc.openfoam.com/
 - OpenCFD, **Boundary conditions**, API 2312 :

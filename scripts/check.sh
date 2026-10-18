@@ -2,8 +2,7 @@
 set -euo pipefail
 root=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$root"
-bash -n Allrun config/openfoam.env
-for file in scripts/*.sh; do bash -n "$file"; done
+for file in Allrun config/openfoam.env scripts/*.sh; do bash -n "$file"; done
 python3 - <<'PY'
 import json
 from pathlib import Path
